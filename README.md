@@ -1,4 +1,4 @@
-# simpleOPF_AC
+# simple OPF AC
 Optimal Power Flow in an AC network
 
 An optimal Power Flow (OPF) Problem in an AC network is a typical optimization problem. An OPF problem minimizes an objective (e.g., power generation cost, network power loss, etc), while satisfying the physical conditions of the power system network as the constraints. The constraints of an OPF problem are typically the power generation limits of each source, the predefined voltage bounds at each bus (aka nodes of the power network graph), the power flow limits in the lines (aka edges of the power network graph), bus reactive power injection bounds, etc. 
