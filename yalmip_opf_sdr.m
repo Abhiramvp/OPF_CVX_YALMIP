@@ -1,36 +1,20 @@
-function results = yalmip_opf_sdr()
-% yalmip_opf_sdr.m
-% 3-bus AC-OPF using semidefinite relaxation (SDR) in YALMIP.
+function results = yalmip_opf_sdr(net)
+% 3-bus AC-OPF SDR with YALMIP.
 
-nbus = 3;
-
-Y = [ 10-30j   -10+30j     0+0j ;
-     -10+30j   15-45j   -5+15j ;
-       0+0j   -5+15j     5-15j ];
-
-Pd = [0.90; 0.50; 0.60];
-Qd = [0.30; 0.20; 0.25];
-sd = Pd + 1j*Qd;
-
-gen_bus = [1; 2];
-ng      = length(gen_bus);
-
-Pg_min = [0.0; 0.0];
-Pg_max = [2.0; 2.0];
-Qg_min = [-0.5; -0.5];
-Qg_max = [ 0.5;  0.5];
-
-Vmin = 0.95;
-Vmax = 1.05;
-
-a = [0.10; 0.10];
-b = [1.00; 1.00];
-c = [0.00; 0.00];
-
-Cg = zeros(nbus,ng);
-for k = 1:ng
-    Cg(gen_bus(k),k) = 1;
-end
+nbus   = net.nbus;
+Y      = net.Y;
+sd     = net.sd;
+Cg     = net.Cg;
+Pg_min = net.Pg_min;
+Pg_max = net.Pg_max;
+Qg_min = net.Qg_min;
+Qg_max = net.Qg_max;
+Vmin   = net.Vmin;
+Vmax   = net.Vmax;
+a      = net.a;
+b      = net.b;
+c      = net.c;
+ng     = net.ng;
 
 Pg = sdpvar(ng,1,'full');
 Qg = sdpvar(ng,1,'full');
