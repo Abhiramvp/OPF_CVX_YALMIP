@@ -11,23 +11,21 @@ A simple OPF is the prerequisite for any addition to an OPF problem making it co
 
 $$
 \begin{align}
-&\mathrm{minimize} && \boldsymbol{h}_g(real(\mathbf{s}^g)), \\ 
-&\mathrm{subject~to} && \hat{\mathrm{C}}^{\top}(\mathbf{S}^g ) = \hat{\mathrm{D}}^{\top} (\mathrm{S}^d) + \mathrm{diag} (\mathbf{v}\mathbf{v}^* \mathrm{Y}^* ), \\ 
+&\mathrm{minimize} && \boldsymbol{h}_g(\mathrm{real}(\mathbf{s}^g)), \\ 
+&\mathrm{subject~to} && \hat{\mathrm{C}}^{\top}(\mathbf{S}^g ) = \hat{\mathrm{D}}^{\top} (\mathbf{S}^d) + \mathrm{diag} (\mathbf{v}\mathbf{v}^* \mathbf{Y}^* ), \\ 
 & && (\mathbf{v}^{\min})^2 \leq { \mathbf{v}\mathbf{v}^*} \leq (\mathbf{v}^{\max})^2, \\ 
 & && \mathbf{s}^{g,\min} \leq \mathbf{s}^g \leq \mathbf{s}^{g,\max}, \\ 
 &\mathrm{variables} && \mathbf{s}^g \in \mathbb{C}^{|\mathcal{N}|}; \mathbf{v} \in \mathbb{C}^{|\mathcal{N}|};
 \end{align}
 $$
 
-
-
 #### Additional constraints OPF
 
 $$
 \begin{align}
-&\mathrm{minimize} && \boldsymbol{h}_g(real(\mathbf{s}^g)), \\ 
-&\mathrm{subject~to} && \hat{\mathrm{C}}^{\top}(\mathbf{S}^g ) = \hat{\mathrm{D}}^{\top} (\mathrm{S}^d) + \mathrm{diag} (\mathbf{v}\mathbf{v}^* \mathrm{Y}^* ), \\ 
-& && |\mathrm{diag} ( \mathrm{C} \mathbf{v} \mathbf{v}^* \mathrm{Y}^* )| = \mathbf{f}, \\ 
+&\mathrm{minimize} && \boldsymbol{h}_g(\mathrm{real}(\mathbf{s}^g)), \\ 
+&\mathrm{subject~to} && \hat{\mathrm{C}}^{\top}(\mathbf{S}^g ) = \hat{\mathrm{D}}^{\top} (\mathbf{S}^d) + \mathrm{diag} (\mathbf{v}\mathbf{v}^* \mathbf{Y}^* ), \\ 
+& && |\mathrm{diag} ( \mathbf{C} \mathbf{v} \mathbf{v}^* \mathbf{Y}^* )| = \mathbf{f}, \\ 
 & && (\mathbf{v}^{\min})^2 \leq { \mathbf{v}\mathbf{v}^*} \leq (\mathbf{v}^{\max})^2, \\ 
 & && \mathbf{s}^{g,\min} \leq \mathbf{s}^g \leq \mathbf{s}^{g,\max}, \\ 
 & && -\mathbf{f}^{\max} \leq \mathbf{f} \leq \mathbf{f}^{\max}, \\ 
@@ -36,28 +34,25 @@ $$
 \end{align}
 $$
 
-
 ## Convex OPF with slack variables
 
 $$
 \begin{align}
-&\mathrm{minimize} && \boldsymbol{h}_g(real(\mathbf{s}^g)), \\ 
-&\mathrm{subject~to} && \hat{\mathrm{C}}^{\top}(\mathbf{S}^g ) = \hat{\mathrm{D}}^{\top} (\mathrm{S}^d) + \mathrm{diag} ( \mathbf{W} \mathrm{Y}^* ), \\ 
+&\mathrm{minimize} && \boldsymbol{h}_g(\mathrm{real}(\mathbf{s}^g)), \\ 
+&\mathrm{subject~to} && \hat{\mathrm{C}}^{\top}(\mathbf{S}^g ) = \hat{\mathrm{D}}^{\top} (\mathbf{S}^d) + \mathrm{diag} ( \mathbf{W} \mathbf{Y}^* ), \\ 
 & && (\mathbf{v}^{\min})^2 \leq  \mathbf{W} \leq (\mathbf{v}^{\max})^2, \\ 
 & && \mathbf{s}^{g,\min} \leq \mathbf{s}^g \leq \mathbf{s}^{g,\max}, \\ 
 &\mathrm{variables} && \mathbf{s}^g \in \mathbb{C}^{|\mathcal{N}|}; \mathbf{v} \in \mathbb{C}^{|\mathcal{N}|}; \mathbf{W}\in \mathbb{C}^{|\mathcal{N}|\times |\mathcal{N}|}
 \end{align}
 $$
 
-
-
 #### Additional constraints OPF with slack variables
 
 $$
 \begin{align}
-&\mathrm{minimize} && \boldsymbol{h}_g(real(\mathbf{s}^g)), \\ 
-&\mathrm{subject~to} && \hat{\mathrm{C}}^{\top}(\mathbf{S}^g ) = \hat{\mathrm{D}}^{\top} (\mathrm{S}^d) + \mathrm{diag} ( \mathbf{W}\mathrm{Y}^* ), \\ 
-& && |\mathrm{diag} ( \mathrm{C}  \mathbf{W} \mathrm{Y}^* )| = \mathbf{f}, \\ 
+&\mathrm{minimize} && \boldsymbol{h}_g(\mathrm{real}(\mathbf{s}^g)), \\ 
+&\mathrm{subject~to} && \hat{\mathrm{C}}^{\top}(\mathbf{S}^g ) = \hat{\mathrm{D}}^{\top} (\mathbf{S}^d) + \mathrm{diag} ( \mathbf{W}\mathbf{Y}^* ), \\ 
+& && |\mathrm{diag} ( \mathbf{C}  \mathbf{W} \mathbf{Y}^* )| = \mathbf{f}, \\ 
 & && (\mathbf{v}^{\min})^2 \leq {  \mathbf{W}} \leq (\mathbf{v}^{\max})^2, \\ 
 & && \mathbf{s}^{g,\min} \leq \mathbf{s}^g \leq \mathbf{s}^{g,\max}, \\ 
 & && -\mathbf{f}^{\max} \leq \mathbf{f} \leq \mathbf{f}^{\max}, \\ 
@@ -69,3 +64,22 @@ $$
 &\mathrm{variables} && \mathbf{s}^g \in \mathbb{C}^{|\mathcal{N}|}; \mathbf{v} \in \mathbb{C}^{|\mathcal{N}|}; \mathbf{f} \in \mathbb{C}^{|\mathcal{E}|}; \mathbf{W}\in \mathbb{C}^{|\mathcal{N}|\times |\mathcal{N}|}
 \end{align}
 $$
+
+---
+
+## MATLAB implementation in this repository
+
+This repository includes a small 3-bus AC network example that solves the convex OPF (SDR with slack variable \( \mathbf{W} \)) using either CVX or YALMIP.
+
+- `opf_main.m`  
+  - Defines the 3-bus network data (Y-bus, loads, generator locations, limits, cost coefficients).  
+  - Packs data into a struct `net`.  
+  - Calls either the CVX or YALMIP backend depending on the input argument.
+
+  Example usage:
+  ```matlab
+  % CVX-based OPF
+  results_cvx = opf_main('cvx');
+
+  % YALMIP-based OPF
+  results_yalmip = opf_main('yalmip');
